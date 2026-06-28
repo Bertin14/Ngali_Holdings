@@ -7,6 +7,10 @@ import mediheal from '../assets/mediheal.png'
 import locusDynamics from '../assets/Locus Dynamics.png'
 import lunaSmelter from '../assets/LuNa Smelter.png'
 import trinity from '../assets/trinity.png'
+import aboutHero1 from '../assets/About us_1.jpg'
+import aboutHero2 from '../assets/About us_2.jpg'
+
+export const aboutHeroImages = [aboutHero1, aboutHero2];
 
 
 export interface Subsidiary {

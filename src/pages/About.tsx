@@ -1,10 +1,29 @@
-import { aboutContent, teamMembers } from '../data/content'
+import { useState, useEffect } from 'react'
+import { aboutContent, teamMembers, aboutHeroImages } from '../data/content'
 
 export default function About() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % aboutHeroImages.length)
+    }, 4000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div>
-      <section className="min-h-screen w-full flex items-center justify-center bg-ngali-black text-white px-6">
-        <h1 className="text-3xl font-bold">About Us</h1>
+      <section
+        className="min-h-screen w-full flex items-center justify-center px-6 relative transition-all duration-700"
+        style={{
+          backgroundImage: `url(${aboutHeroImages[currentSlide]})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+        <h1 className="relative z-10 text-3xl font-bold text-white">About Us</h1>
       </section>
 
       <section className="min-h-screen w-full flex items-center justify-center px-6">
