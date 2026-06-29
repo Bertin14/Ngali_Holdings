@@ -152,3 +152,38 @@ export const blogPosts: BlogPost[] = [
     image: miningImg,
   },
 ];
+export interface JobOpening {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+}
+
+export const jobOpenings: JobOpening[] = [
+  {
+    id: "finance-analyst",
+    title: "Finance Analyst",
+    department: "Finance",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    description: "We are looking for a detail-oriented Finance Analyst to support budgeting, forecasting, and financial reporting across our subsidiaries. The ideal candidate has a strong background in financial modeling and a passion for Africa's development sector.",
+  },
+  {
+    id: "project-risk-manager",
+    title: "Project Risk Manager",
+    department: "Operations",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    description: "Ngali Holdings is seeking a Project Risk Manager to identify, assess, and mitigate risks across our portfolio of infrastructure and energy projects, ensuring smooth execution and long-term sustainability.",
+  },
+  {
+    id: "communications-officer",
+    title: "Communications Officer",
+    department: "Marketing",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    description: "We're hiring a Communications Officer to manage our public relations, content creation, and brand messaging across our subsidiaries, helping tell the story of Ngali Holdings' impact across Africa.",
+  },
+];

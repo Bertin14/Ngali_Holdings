@@ -28,6 +28,7 @@ export default function Footer() {
             <li><Link to="/portfolio" className="hover:text-white">Portfolio</Link></li>
             <li><Link to="/sectors" className="hover:text-white">Sectors</Link></li>
             <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+            <Link to="/careers" className="hover:text-ngali-orange">Careers</Link>
           </ul>
         </div>
 

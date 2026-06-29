@@ -20,6 +20,7 @@ export default function Navbar() {
           <Link to="/sectors" className="hover:text-ngali-orange">Sectors</Link>
           <Link to="/blogs" className="hover:text-ngali-orange">Blogs</Link>
           <Link to="/contact" className="hover:text-ngali-orange">Contact</Link>
+          <Link to="/careers" className="hover:text-ngali-orange">Careers</Link>
         </div>
 
         {/* Hamburger button - hidden on desktop */}
@@ -40,6 +41,7 @@ export default function Navbar() {
           <Link to="/sectors" onClick={() => setIsMenuOpen(false)} className="hover:text-ngali-orange">Sectors</Link>
           <Link to="/blogs" onClick={() => setIsMenuOpen(false)} className="hover:text-ngali-orange">Blogs</Link>
           <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-ngali-orange">Contact</Link>
+          <Link to="/careers" className="hover:text-ngali-orange">Careers</Link>
         </div>
       )}
     </nav>
