@@ -3,14 +3,20 @@ import { sectorsContent, sectorsHeroImages } from '../data/content'
 
 export default function Sectors() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [openSectors, setOpenSectors] = useState<string[]>([])
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sectorsHeroImages.length)
     }, 4000)
-
     return () => clearInterval(timer)
   }, [])
+
+  function toggleSector(title: string) {
+    setOpenSectors((prev) =>
+      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
+    )
+  }
 
   return (
     <div>
@@ -29,18 +35,30 @@ export default function Sectors() {
         </div>
       </section>
 
-      {/* keep your existing second section exactly as it was below */}
       <section className="min-h-screen w-full flex items-center justify-center px-6">
         <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sectorsContent.sectors.map((sector) => (
-  <div key={sector.title} className="bg-gray-50 rounded-lg overflow-hidden">
-    <img src={sector.image} alt={sector.title} className="w-full h-48 object-cover" />
-    <div className="p-6">
-      <h3 className="font-semibold text-gray-800 mb-2">{sector.title}</h3>
-      <p className="text-gray-600 text-sm">{sector.text}</p>
-    </div>
-  </div>
-))}
+          {sectorsContent.sectors.map((sector) => {
+            const isOpen = openSectors.includes(sector.title)
+            return (
+              <div key={sector.title} className="bg-gray-50 rounded-lg overflow-hidden">
+                <img src={sector.image} alt={sector.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h3 className="font-semibold text-gray-800 mb-2">{sector.title}</h3>
+
+                  {isOpen && (
+                    <p className="text-gray-600 text-sm mb-3">{sector.text}</p>
+                  )}
+
+                  <button
+                    onClick={() => toggleSector(sector.title)}
+                    className="text-ngali-orange text-sm font-medium hover:underline"
+                  >
+                    {isOpen ? 'Show less ←' : 'Read more →'}
+                  </button>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
     </div>
