@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { jobOpenings, careersContent } from '../data/content'
+import careerHero from '../assets/career.jpg'
 
 export default function Careers() {
   const [activeDepartment, setActiveDepartment] = useState('All')
@@ -19,10 +20,20 @@ export default function Careers() {
 
   return (
     <div>
-      <section className="min-h-screen w-full flex flex-col items-center justify-center bg-ngali-black text-white px-6 text-center">
-        <h1 className="text-3xl font-bold mb-3">Careers at Ngali Holdings</h1>
-        <p className="text-gray-300 max-w-2xl">{careersContent.intro}</p>
-      </section>
+      <section
+  className="min-h-screen w-full flex flex-col items-center justify-center text-white px-6 text-center relative"
+  style={{
+    backgroundImage: `url(${careerHero})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div className="absolute inset-0 bg-black/50"></div>
+  <div className="relative z-10">
+    <h1 className="text-3xl font-bold mb-3">Careers at Ngali Holdings</h1>
+    <p className="text-gray-300 max-w-2xl">{careersContent.intro}</p>
+  </div>
+</section>
 
       {/* Why work with us */}
       <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gray-50 px-6">
