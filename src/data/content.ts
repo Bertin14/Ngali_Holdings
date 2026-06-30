@@ -191,3 +191,12 @@ export const jobOpenings: JobOpening[] = [
     deadline: "2026-07-31",
   },
 ];
+export const careersContent = {
+  intro: "We're looking for talented individuals who share our vision of building strong, sustainable industries across Africa. Join a team that values impact, growth, and collaboration.",
+  benefits: [
+    { title: "Meaningful Impact", text: "Work on projects that directly contribute to Rwanda's economic growth and development across multiple sectors." },
+    { title: "Professional Growth", text: "We invest in our people through training, mentorship, and opportunities to take on real responsibility early." },
+    { title: "Diverse Teams", text: "Collaborate with professionals across energy, mining, healthcare, technology, and more." },
+    { title: "Competitive Benefits", text: "Enjoy competitive compensation, health coverage, and a supportive, collaborative work environment." },
+  ],
+};

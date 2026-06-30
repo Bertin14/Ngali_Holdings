@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { jobOpenings } from '../data/content'
+import { jobOpenings, careersContent } from '../data/content'
 
 export default function Careers() {
   const [activeDepartment, setActiveDepartment] = useState('All')
@@ -21,13 +21,26 @@ export default function Careers() {
     <div>
       <section className="min-h-screen w-full flex flex-col items-center justify-center bg-ngali-black text-white px-6 text-center">
         <h1 className="text-3xl font-bold mb-3">Careers at Ngali Holdings</h1>
-        <p className="text-gray-300 max-w-2xl">
-          Be part of something bigger — join a team building strategic, sustainable growth across Africa.
-        </p>
+        <p className="text-gray-300 max-w-2xl">{careersContent.intro}</p>
       </section>
 
+      {/* Why work with us */}
+      <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gray-50 px-6">
+        <h2 className="text-2xl font-bold text-gray-800 mb-10">Why Work With Us</h2>
+        <div className="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+          {careersContent.benefits.map((benefit) => (
+            <div key={benefit.title} className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="font-semibold text-gray-800 mb-2">{benefit.title}</h3>
+              <p className="text-gray-600 text-sm">{benefit.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Job listings */}
       <section className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-12">
-        {/* Department filter buttons */}
+        <h2 className="text-2xl font-bold text-gray-800 mb-8">Open Positions</h2>
+
         <div className="flex flex-wrap gap-3 mb-10">
           {departments.map((dept) => (
             <button
@@ -44,7 +57,6 @@ export default function Careers() {
           ))}
         </div>
 
-        {/* Job cards */}
         <div className="max-w-3xl w-full space-y-4">
           {filteredJobs.map((job) => {
             const remaining = daysUntil(job.deadline)
